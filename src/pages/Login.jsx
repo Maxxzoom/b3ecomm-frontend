@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import API from "../utils/axios";
-
-const Register = () => {
+import "../styles/Register.css"
+const Login = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -18,7 +18,8 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await API.post("/users/login", form);
-      console.log(res);
+      localStorage.setItem("token", res.data.token);
+      console.log(res.data.token);
       alert("Login Successful");
       navigate("/");
     } catch (error) {
@@ -26,7 +27,7 @@ const Register = () => {
     }
   };
   return (
-    <div>
+    <div className="form-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -44,11 +45,14 @@ const Register = () => {
           required
         />
         <button type="submit">Login</button>
+        <span>
+          don't have a account? <NavLink to="/register">Register</NavLink>
+        </span>
       </form>
 
-      {message}
+      {message && <div className="message">{message}</div>}
     </div>
   );
 };
 
-export default Register;
+export default Login;

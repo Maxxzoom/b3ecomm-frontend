@@ -1,5 +1,7 @@
 import { useState } from "react";
 import API from "../utils/axios";
+import "../styles/Register.css"
+import { NavLink } from "react-router-dom";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -24,7 +26,7 @@ const Register = () => {
     }
   };
   return (
-    <div>
+    <div className="form-container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -41,6 +43,7 @@ const Register = () => {
           onChange={handleChange}
           required
         />
+
         <input
           name="password"
           type="password"
@@ -49,9 +52,12 @@ const Register = () => {
           required
         />
         <button type="submit">Register</button>
+         <span>
+          Already have an account? <NavLink to="/login">Login</NavLink>
+        </span>
       </form>
 
-      {message}
+      {message && <div className="message">{message}</div>}
     </div>
   );
 };
