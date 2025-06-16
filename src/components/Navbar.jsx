@@ -12,13 +12,11 @@ const Navbar = () => {
 
   return (
     <>
-      {token && (
         <nav>
           <NavLink to={"/"}>Home</NavLink>
           <NavLink to="/profile">Profile</NavLink>
           <button onClick={handleLogout}>Logout</button>
         </nav>
-      )}
     </>
   );
 };
