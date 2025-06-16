@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import API from "../utils/axios";
-import "../styles/Register.css"
+import "../styles/Register.css";
 const Login = () => {
   const [form, setForm] = useState({
     email: "",
@@ -44,8 +44,12 @@ const Login = () => {
           onChange={handleChange}
           required
         />
-        <button type="submit">Login</button>
         <span>
+          <NavLink to="/forgot-password">Forgot Password</NavLink>
+        </span>
+
+        <button type="submit">Login</button>
+        <span className="account_link">
           don't have a account? <NavLink to="/register">Register</NavLink>
         </span>
       </form>

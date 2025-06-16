@@ -6,6 +6,10 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
+
+
 function App() {
   return (
     <>
@@ -23,6 +27,8 @@ function App() {
           />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>
     </>

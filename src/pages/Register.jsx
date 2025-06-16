@@ -51,8 +51,9 @@ const Register = () => {
           onChange={handleChange}
           required
         />
+
         <button type="submit">Register</button>
-         <span>
+         <span className="account_link">
           Already have an account? <NavLink to="/login">Login</NavLink>
         </span>
       </form>
