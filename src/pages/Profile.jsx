@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../utils/axios";
+
 const Profile = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  console.log(user);
 
   const fetchProfile = async () => {
     try {
@@ -18,7 +20,14 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
-  return <div>{user}</div>;
+  if (!user) return <p> Loading profile...</p>;
+
+  return (
+    <div className="container">
+      <h2>Welcome, {user.name}</h2>
+      <p>{user.email}</p>
+    </div>
+  );
 };
 
 export default Profile;
