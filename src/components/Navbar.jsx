@@ -13,6 +13,7 @@ const Navbar = () => {
   return (
     <>
         <nav>
+          <NavLink to={"/adminupload"}>Admin Upload</NavLink>
           <NavLink to={"/"}>Home</NavLink>
           <NavLink to="/profile">Profile</NavLink>
           <button onClick={handleLogout}>Logout</button>

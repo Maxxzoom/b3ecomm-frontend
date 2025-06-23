@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://b3eccom-backend.onrender.com/api" /* Backend base URL */,
+  baseURL: "http://localhost:5000/api" /* Backend base URL */,
 });
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");

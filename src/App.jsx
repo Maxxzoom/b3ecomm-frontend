@@ -10,6 +10,8 @@ import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import Footer from "./components/Footer";
 
+import AdminUpload from "./pages/admin/AdminUpload";
+
 function App() {
   const location = useLocation();
   const hideNavbarRoutes = ["/login", "/register", "/forgot-password"];
@@ -20,6 +22,7 @@ function App() {
       {shouldShowNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/adminupload" element={<AdminUpload />} />
         <Route
           path="/profile"
           element={
